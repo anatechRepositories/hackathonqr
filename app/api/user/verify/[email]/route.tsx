@@ -8,6 +8,7 @@ interface Props {
         email: string
     }
 }
+
 export async function POST(request: NextRequest, { params }: Props) {
 
 
@@ -17,32 +18,41 @@ export async function POST(request: NextRequest, { params }: Props) {
             }
         });
 
-        if(user)
-        {
 
+
+        if (user) {
+            if (user.verified) {
+                return NextResponse.json(
+                    {
+                      error: "Email is already verified",
+                    },
+                    {
+                      status: 400,
+                    }
+                  );
+            }
+        
             const userUpdate = await prisma.user.update({
-                where : {
-                    email : params.email
-                },
-                data : {
-                    verified : true
-                }
-            })
-
-            return NextResponse.json(
-                {
-                    userUpdate
-                }
-            )
-        }
-
-        return NextResponse.json(
+              where: {
+                email: params.email,
+              },
+              data: {
+                verified: true,
+              },
+            });
+        
+            return NextResponse.json({
+              message: "Email successfully verified.",
+              userUpdate,
+            });
+          }
+        
+          return NextResponse.json(
             {
-                error : "ERR"
+              error: "User not found or invalid email.",
             },
             {
-                status : 400
+              status: 400,
             }
-        )
-    
-}
+          );
+        }

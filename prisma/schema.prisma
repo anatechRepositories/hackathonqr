@@ -54,6 +54,7 @@ model User {
   guest3         String?
   guest3tshirt   String?
   tsize          String?
+  barcode        String?    @unique
   accounts       Account[]
   sessions       Session[]
 }
