@@ -19,6 +19,7 @@ const schema = z.object({
     guest2tshirt : z.string().nullable(),
     guest3 : z.string().nullable(),
     guest3tshirt : z.string().nullable(),
+    barcode: z.string()
 })
 
 export async function POST(request: NextRequest,  respose : NextResponse) {
@@ -47,6 +48,7 @@ export async function POST(request: NextRequest,  respose : NextResponse) {
             guest2tshirt : body.guest2tshirt,
             guest3 : body.guest3,
             guest3tshirt : body.guest3tshirt,
+            barcode : body.barcode
         }
     })
 
