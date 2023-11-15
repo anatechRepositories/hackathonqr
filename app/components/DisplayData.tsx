@@ -91,22 +91,17 @@ const DisplayData = () => {
         </>
       ):(
     
-      <>
-      <p>Name: {data?.name}</p>
+      <div className='bg-white p-2 border rounded-lg'>
+      <p className=''>Name: {data?.name}</p>
         <p>Email: {data?.email}</p>
         {data?.verified !== null ? (
           <p>Verification Status: {data?.verified ? "Verified" : "Not Verified"}</p>
         ) : (
           <p>Verification Status: N/A</p>
         )}        
-        <p>Guest 1: {data?.guest1}</p>
-        <p>Guest 1 T-Shirt: {data?.guest1tshirt}</p>
-        <p>Guest 2: {data?.guest2}</p>
-        <p>Guest 2 T-Shirt: {data?.guest2tshirt}</p>
-        <p>Guest 3: {data?.guest3}</p>
-        <p>Guest 3 T-Shirt: {data?.guest3tshirt}</p>
-        <p>T-Size: {data?.tsize}</p>
-      </>
+
+        <p className='text-red-500'>T-Size: {data?.tsize}</p>
+      </div>
       )}
       <ToastContainer position="top-right" autoClose={5000} className={'text-sm'} />
     </div>  

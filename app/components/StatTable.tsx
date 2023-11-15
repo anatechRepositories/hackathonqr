@@ -80,12 +80,7 @@ const Stat: React.FC = () => {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Verified</th>
-                    <th>Guest 1(T-Shirt Size)</th>
-                    <th>Guest 2(T-Shirt Size)</th>
-                    <th>Guest 3(T-Shirt Size)</th>
                     <th>T-Size</th>
-                    <th>Barcode</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -96,17 +91,7 @@ const Stat: React.FC = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>{user.verified ? 'Verified' : 'Not Verified'}</td>
-                        <td>
-                          {user.guest1} ({user.guest1tshirt})
-                        </td>
-                        <td>
-                          {user.guest2} ({user.guest2tshirt})
-                        </td>
-                        <td>
-                          {user.guest3} ({user.guest3tshirt})
-                        </td>
                         <td>{user.tsize}</td>
-                        <td>{user.barcode}</td>
                       </tr>
                     ))
                   ) : (
