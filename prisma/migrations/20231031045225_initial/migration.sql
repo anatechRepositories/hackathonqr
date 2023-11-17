@@ -1,8 +1,0 @@
--- AlterTable
-ALTER TABLE `user` ADD COLUMN `guest1` VARCHAR(191) NULL,
-    ADD COLUMN `guest1tshirt` VARCHAR(191) NULL,
-    ADD COLUMN `guest2` VARCHAR(191) NULL,
-    ADD COLUMN `guest2tshirt` VARCHAR(191) NULL,
-    ADD COLUMN `guest3` VARCHAR(191) NULL,
-    ADD COLUMN `guest3tshirt` VARCHAR(191) NULL,
-    ADD COLUMN `verified` BOOLEAN NOT NULL DEFAULT false;

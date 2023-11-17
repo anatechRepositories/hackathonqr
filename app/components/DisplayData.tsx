@@ -16,6 +16,8 @@ interface UserData {
   guest3: string;
   guest3tshirt: string;
   tsize: string;
+  updatedAt: any;
+
 }
 
 const DisplayData = () => {
@@ -82,6 +84,29 @@ const DisplayData = () => {
 
   },[searchParams])
 
+  function formatMalaysiaDate(dateString:any) {
+    if (!dateString) return 'N/A';
+  
+    const utcDate = new Date(dateString);
+    const myTimezone = 'Asia/Kuala_Lumpur';
+  
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZone: myTimezone,
+    };
+  
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+    const myTime = formatter.format(utcDate);
+  
+    return myTime;
+  }
+  
+
 
   return (
     <div className="h-auto p-6 card bg-base-300 rounded-box text-left">
@@ -94,6 +119,11 @@ const DisplayData = () => {
       <div className='bg-white p-2 border rounded-lg'>
       <p className=''>Name: {data?.name}</p>
         <p>Email: {data?.email}</p>
+
+        {data?.verified === true && data?.updatedAt !== null && (
+      <p>Updated At: {formatMalaysiaDate(data?.updatedAt)}</p>
+      )}       
+
         {data?.verified !== null ? (
           <p>Verification Status: {data?.verified ? "Verified" : "Not Verified"}</p>
         ) : (

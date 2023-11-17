@@ -38,6 +38,7 @@ export async function POST(request: NextRequest, { params }: Props) {
               },
               data: {
                 verified: true,
+                updatedAt: new Date(),
               },
             });
         
